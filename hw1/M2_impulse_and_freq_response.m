@@ -8,7 +8,7 @@ impulse = [1 zeros(1,SIZE_OF_SAMPLE-1)]
 impulse_response = filter(b,a,impulse)
 impulse_response_axis = 0:SIZE_OF_SAMPLE-1
 subplot(2,1,1)
-plot(impulse_response_axis, impulse_response)
+stem(impulse_response_axis, impulse_response)
 title('Impulse response')
 xlabel('n')
 ylabel('Magnitude')
