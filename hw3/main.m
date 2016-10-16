@@ -1,2 +1,2 @@
-y = srconvert([1 zeros(1,3000)]);
+y = srconvert([1 zeros(1,3000)], 806.75);
 verify(y)
