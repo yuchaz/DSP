@@ -2,8 +2,9 @@ function out_signal=srconvert(in_signal)
 
 upsampled_signal = upsample(in_signal, 320);
 
-[h,g]=ifir(320,'low',[.003 .0031],[.01 .001]);
-lp = fftfilt(h,g)
+[h,g]=ifir(147,'low',[.0035 .0037],[.01 .0001]);
+%lp = fftfilt(h,g)
+lp=h;
 
 %h = firls(555, [0,1/400,1/320,1],[1,1,0,0]);
 %h = intfilt(300,10,0.5);
