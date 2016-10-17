@@ -1,17 +1,33 @@
-function out_signal=srconvert(in_signal)
+function out=srconvert(in)
+UP_FACTOR = 320;
+DOWN_FACTOR = 147;
 
-upsampled_signal = upsample(in_signal, 320);
+uped_sig = upsample(in, UP_FACTOR);
+E = poly1(uped_sig,DOWN_FACTOR);
+a = 1;
+b = [1/4 1/4 1/4 1/4];
 
 [h,g]=ifir(147,'low',[.0035 .0037],[.01 .0001]);
 %lp = fftfilt(h,g)
 lp=h;
 
-%h = firls(555, [0,1/400,1/320,1],[1,1,0,0]);
-%h = intfilt(300,10,0.5);
-%h = kaiser(1001, al)
-%filtered_signal = filter(h,1,upsampled_signal);
-filtered_signal = fftfilt(lp,upsampled_signal);
+filtered_matrix = {};
+filtered_matrix{size(E,1),1} = [];
+for i=1:size(E,1)
+    filtered_sig = filter(b,a,E(i,:));
+    filtered_matrix{i,1} = downsample(filtered_sig, DOWN_FACTOR);
+end;
 
-out_signal = downsample(filtered_signal, 147);
+FM = cell2mat(filtered_matrix);
+
+out = transpose(FM(:));
+%uped_signal = upsample(in, UP_FACTOR);
+
+%[h,g]=ifir(UP_FACTOR,'low',[.003 .0031],[.01 .001]);
+%lp = fftfilt(h,g)
+
+%filtered_signal = fftfilt(lp,uped_signal);
+
+%out = downsample(filtered_signal, DOWN_FACTOR);
 
 return;
