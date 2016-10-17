@@ -13,4 +13,3 @@ LOW_SIG_M = cell2mat(LOW_SIG);
 out = transpose(LOW_SIG_M(:));
 
 end
-
