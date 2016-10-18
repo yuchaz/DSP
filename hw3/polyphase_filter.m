@@ -1,7 +1,7 @@
 function out=polyphase_filter(in, up_factor, down_factor)
 lpf = lpf_create(down_factor);
 
-E = poly_decompose_x(upsample(in,up_factor),down_factor);
+E = polyphase_decompose_x(upsample(in,up_factor),down_factor);
 LPF = poly1(lpf, down_factor);
 LOW_SIG{size(E,1),1} = [];
 
