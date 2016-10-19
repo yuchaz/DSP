@@ -1,5 +1,8 @@
 [x,~] = audioread('Wagner.wav');
 y = srconvert(x.');
 audiowrite('converted.wav',y, 24000);
-x;
-y;
+subplot(2,1,1);
+plot(x);
+subplot(2,1,2);
+plot(y);
+sound(5*y,24000);
