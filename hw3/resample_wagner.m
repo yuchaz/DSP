@@ -5,4 +5,4 @@ subplot(2,1,1);
 plot(x);
 subplot(2,1,2);
 plot(y);
-sound(5*y,24000);
+sound(y,24000);
