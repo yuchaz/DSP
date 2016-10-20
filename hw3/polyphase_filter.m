@@ -10,7 +10,6 @@ for i=1:size(E,1)
 end;
 
 LOW_SIG_M = cell2mat(LOW_SIG);
-disp(size(LPF,2));
 out = sum(LOW_SIG_M);
 
 end
