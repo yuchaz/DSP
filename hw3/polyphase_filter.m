@@ -5,7 +5,6 @@ LPF = poly1(lpf, down_factor);
 LOW_SIG{size(E,1),1} = [];
 
 for i=1:size(E,1)
-    %LOW_SIG{i,1} = conv(downsample(E(i,:),down_factor),LPF(i,:));
     LOW_SIG{i,1} = fftfilt(LPF(i,:),E(i,:));
 end;
 
