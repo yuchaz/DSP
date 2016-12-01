@@ -11,6 +11,7 @@ down_freq = Fs*ups/dns;
 y_delay = [zeros(delay_by,1); y(1:length(y)-delay_by)];
 err = y_delay - y_restore;
 experiment_error = rms(err).^2;
+audiowrite('restored_1812.wav',y_restore,Fs);
 
 correlation = rms(lpf2).^2*length(lpf2);
 hac1 = dsp.Autocorrelator;
