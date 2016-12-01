@@ -5,7 +5,7 @@ delay_by = 2;
 down_freq = Fs*ups/dns;
 
 [y_d,lpf1] = srconvert(y,ups,dns);
-[y_head,delta] = quantize_with_freq(y_d, down_freq);
+[y_head,delta] = quantizer(y_d, down_freq);
 [y_restore,lpf2] = srconvert(y_head, dns, ups);
 
 y_delay = [zeros(delay_by,1); y(1:length(y)-delay_by)];

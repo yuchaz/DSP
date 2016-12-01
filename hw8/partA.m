@@ -4,6 +4,8 @@ compression_degree = 4;
 [pxx_2,w_2] = pwelch(y);
 [pxx_3,w_3] = pyulear(y,20);
 plot(w_1/pi,10*log10(pxx_1),w_2/pi,10*log10(pxx_2),w_3/pi,10*log10(pxx_3));
+xlabel('normalized frequency \times\pi');
+ylabel('log intensity');
 legend('periodogram()','pwelch()','pyulear()')
 % You should now calculate the ratio of loss.
 
